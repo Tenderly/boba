@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import Button from 'components/button/Button'
 
 import { Info } from "@mui/icons-material"
-import { Box, CircularProgress, Icon, Typography } from '@mui/material'
+import { Box, Icon, Typography } from '@mui/material'
 
 import { switchChain, getETHMetaTransaction } from 'actions/setupAction'
-import { openAlert, openError, setActiveHistoryTab, setPage as setPageAction } from 'actions/uiAction'
+import { openAlert, openError } from 'actions/uiAction'
 import { fetchTransactions } from 'actions/networkAction'
 
 import Tabs from 'components/tabs/Tabs'
@@ -25,10 +25,9 @@ import {
 } from "selectors/setupSelector"
 
 import { selectlayer2Balance } from 'selectors/balanceSelector'
-import { selectTransactions } from 'selectors/transactionSelector'
 
 import PageTitle from 'components/pageTitle/PageTitle'
-import { isEqual, orderBy } from 'lodash'
+import { isEqual } from 'lodash'
 
 import { POLL_INTERVAL } from "util/constant"
 import useInterval from "util/useInterval"
@@ -117,15 +116,15 @@ function Wallet() {
 
   return (
     <S.PageContainer>
-      
+
       <PageTitle title={'Wallet'} />
 
-      <Connect 
+      <Connect
         userPrompt={'Connect to MetaMask to see your balances, transfer, and bridge'}
         accountEnabled={accountEnabled}
       />
 
-      {layer === 'L2' && tooSmallETH && network === 'rinkeby' && 
+      {layer === 'L2' && tooSmallETH && network === 'rinkeby' &&
         <G.LayerAlert>
           <G.AlertInfo>
             <Icon as={Info} sx={{color:"#BAE21A"}}/>
@@ -136,8 +135,8 @@ function Wallet() {
               ml={2}
               style={{ opacity: '0.6' }}
             >
-              Using Boba requires a minimum ETH balance (of 0.002 ETH) regardless of your fee setting, 
-              otherwise MetaMask may incorrectly reject transactions. If you ran out of ETH, use 
+              Using Boba requires a minimum ETH balance (of 0.002 ETH) regardless of your fee setting,
+              otherwise MetaMask may incorrectly reject transactions. If you ran out of ETH, use
               EMERGENCY SWAP to swap BOBA for 0.05 ETH at market rates.
             </Typography>
           </G.AlertInfo>

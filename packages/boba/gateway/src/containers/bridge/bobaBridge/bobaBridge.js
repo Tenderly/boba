@@ -8,7 +8,7 @@ import BobaIcon from 'components/icons/BobaIcon.js';
 import EthereumIcon from 'components/icons/EthereumIcon.js';
 import LayerSwitcher from 'components/mainMenu/layerSwitcher/LayerSwitcher';
 import WalletPicker from "components/walletpicker/WalletPicker";
-import * as LaytoutS from 'components/common/common.styles'
+import * as G from 'containers/Global.styles'
 
 import { selectAccountEnabled, selectLayer } from "selectors/setupSelector";
 
@@ -35,7 +35,7 @@ function BobaBridge() {
           <Typography variant="h3">Bridge</Typography>
           <Typography variant="body2">Select tokens to send through the Boba Bridge.</Typography>
         </Box>
-        <LaytoutS.DividerLine />
+        <G.DividerLine />
         <S.BobaContentWrapper flexDirection="column" fullWidth={true} gap="5px" alignItems="flex-start" my={1}>
           <Box width="100%">
             <Box>

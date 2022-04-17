@@ -35,7 +35,7 @@ import LayerSwitcher from 'components/mainMenu/layerSwitcher/LayerSwitcher'
 import Connect from 'containers/connect/Connect'
 import PageTitle from 'components/pageTitle/PageTitle'
 
-import { Circle, HelpOutline } from '@mui/icons-material'
+import { HelpOutline } from '@mui/icons-material'
 
 class Farm extends React.Component {
 
@@ -217,7 +217,7 @@ class Farm extends React.Component {
 
         <PageTitle title={'Earn'} />
 
-        <Connect 
+        <Connect
           userPrompt={'Connect to MetaMask to see your balances and contribute to the liquidity pool '}
           accountEnabled={accountEnabled}
         />
@@ -231,7 +231,7 @@ class Farm extends React.Component {
               md={10}
             >
               <Typography variant="body2" sx={{ mt: 2 }}>
-                Bridging fees are proportionally distributed to stakers. The bridges are not farms. 
+                Bridging fees are proportionally distributed to stakers. The bridges are not farms.
                 Your earnings only increase when someone uses the bridge you have staked into.
               </Typography>
             </S.GridItemTag>
@@ -249,7 +249,7 @@ class Farm extends React.Component {
                   <br /><br />
                   <span style={{ fontWeight: '700' }}>Pool rebalancing</span>. In some circumstances, excess balances can accumulate on one chain. For example, if many people
                   bridge from L1 to L2, then L1 pool balances will increase, while L2 balances will decrease. When needed, the pool operator can
-                  rebalance the pools, using 'classic' deposit and exit operations to move funds from one pool to another. Rebalancing takes 7 days, due to the 
+                  rebalance the pools, using 'classic' deposit and exit operations to move funds from one pool to another. Rebalancing takes 7 days, due to the
                   7 day fraud proof window, which also applies to the operator.
                   <br /><br />
                   <span style={{ fontWeight: '700' }}>Dynamic fees</span>. The pools use an automatic supply-and-demand approach to setting the fees.

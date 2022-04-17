@@ -155,7 +155,7 @@ border-radius: ${theme.shape.borderRadius}px;
             style: {
               color: buttonColor,
               borderColor: buttonColor,
-              background: light ? '#fff' : 'none', 
+              background: light ? '#fff' : 'none',
               borderWidth: '1.4px',
               fontWeight: 700,
               filter: "drop-shadow(0px 0px 3px rgba(73, 107, 239, 0.35))",

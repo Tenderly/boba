@@ -293,8 +293,14 @@ function InputStepBatch({ isBridge, handleClose }) {
                   selectValue={payload[index].symbol ? payload[index].symbol: ''}
                   style={{width: '100%'}}
                 />
-                <div key={index} style={{display: 'flex', marginTop: payload[index].symbol === 'ETH' ? '0px':'10px', flexDirection: 'column'}}>
-                  <CounterButton plus
+                <div key={index} style={{
+                  display: 'flex',
+                  marginTop: payload[ index ].symbol === 'ETH' ? '0px' : '10px',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <CounterButton key="plus" plus
                     onClick={() => {
                       const updatedPayload = [...payload]
                       updatedPayload.push({})
@@ -302,7 +308,7 @@ function InputStepBatch({ isBridge, handleClose }) {
                     }}
                     disabled={payload.length > 3}
                   />
-                  <CounterButton minus
+                  <CounterButton key="minus" minus
                     onClick={() => {
                       let updatedPayload = [...payload]
                       updatedPayload.splice(index, 1)
@@ -352,7 +358,7 @@ function InputStepBatch({ isBridge, handleClose }) {
         <Typography variant="body2" sx={{mb: 3}}>
         Click the + symbol to add additional tokens to bridge.
         <br/>
-        Est. time: less than 10 minutes to 3 hours.  
+        Est. time: less than 10 minutes to 3 hours.
         </Typography>
 
         <div style={{display: 'flex', justifyContent: 'space-between'}}>
