@@ -201,16 +201,28 @@ rec {
         . $stdenv/setup
 
         mkdir -p $out/
-        cp -r ${bobapkgs."@eth-optimism/contracts"}/contracts/{artifacts,deployments,dist,contracts,package.json,hardhat.config.ts} $out/
+        cp -r ${bobapkgs."@eth-optimism/contracts"}/contracts/{artifacts,bin,deployments,dist,contracts,package.json,hardhat.config.ts,test,tasks,src,tsconfig*} $out/
+        mkdir -p $out/node_modules/{@eth-optimism,@boba,.bin}
 
-        mkdir -p $out/node_modules/@eth-optimism/
-        ln -s ${coreutils-min} $out/node_modules/@eth-optimism/core-utils
+        mkdir -p $out/node_modules/{@ethersproject,@nomiclabs}/
+        cp -r ${bobapkgs."@eth-optimism/contracts"}/contracts/node_modules/@ethersproject/{abstract-provider,abstract-signer,hardware-wallets} $out/node_modules/@ethersproject/
+        cp -r ${bobapkgs."@eth-optimism/contracts"}/contracts/node_modules/@nomiclabs/{hardhat-ethers,hardhat-waffle,hardhat-etherscan} \
+          $out/node_modules/@nomiclabs/
 
-        mkdir -p $out/node_modules/@ethersproject/
-        cp -r ${bobapkgs."@eth-optimism/contracts"}/contracts/node_modules/@ethersproject/{abstract-provider,abstract-signer} $out/node_modules/@ethersproject/
         cp -r ${bobapkgs."@eth-optimism/contracts"}/contracts/node_modules/ethers \
           $out/node_modules/
+        cp -r ${bobapkgs."@eth-optimism/contracts"}/contracts/node_modules/{ts-node,typescript,directory-tree,dotenv,hardhat,hardhat-deploy,hardhat-output-validator,@typechain,hardhat-gas-reporter,solidity-coverage,ethereum-waffle} \
+          $out/node_modules/
+        cp -r ${bobapkgs."@eth-optimism/contracts"}/contracts/node_modules/@types \
+          $out/node_modules/
 
+        # ${pkgs.rsync}/bin/rsync -av ${bobapkgs."@eth-optimism/contracts"}/contracts/node_modules/ $out/node_modules/ \
+        #   --exclude={'@boba','@eth-optimism'}
+
+        ln -s ${coreutils-min} $out/node_modules/@eth-optimism/core-utils
+        ln -s ${turing-min} $out/node_modules/@boba/turing-hybrid-compute
+
+        ln -s $out/node_modules/ts-node/dist/bin.js $out/node_modules/.bin/ts-node
       '';
     };
   };

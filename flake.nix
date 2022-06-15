@@ -151,6 +151,13 @@
             "@eth-optimism/core-utils"."0.8.1"  = [
               [ "@types/node" "15.14.9" ]
             ];
+            "@ledgerhq/hw-transport-node-hid"."5.26.0" = [
+              [ "node-hid" "2.1.1" ]
+            ];
+            "@ethersproject/hardware-wallets"."5.5.0" = [
+              [ "node-hid" "2.1.1" ]
+            ];
+
             # needed for noDev
             # "@eth-optimism/contracts"."0.5.11"  = [
             #   [ "typescript" "4.5.5" ]

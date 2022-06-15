@@ -209,7 +209,7 @@ in
         mkdir -p $out/bin
         ln -s $out/lib/node_modules/@eth-optimism/contracts $out/contracts
         ln -s $out/contracts/node_modules/ts-node/dist/bin.js $out/bin/ts-node
-        rm $out/contracts/node_modules/node-hid
+        # rm $out/contracts/node_modules/node-hid
         rm -rf $out/contracts/node_modules/@ledgerhq
         rm $out/contracts/node_modules/usb
       '';
@@ -252,7 +252,7 @@ in
     inherit correct-tsconfig-path;
     cleanup-dir = {
       postFixup = ''
-        rm -r `ls -A $out/lib/node_modules/@eth-optimism/sdk/ | grep -v "package.json\|dist\|node_modules"`
+        rm -r `ls -A $out/lib/node_modules/@eth-optimism/sdk/ | grep -v "package.json\|dist\|node_modules\|src\|tsconfig"`
       '';
     };
     minimize = {
@@ -491,6 +491,95 @@ in
   #   };
   # };
 
+  # Prune uuid from outputs
+  # "web3" = {
+  #   stop = {
+  #     postFixup = ''
+  #     if [ -h "$out/lib/node_modules/web3/node_modules/uuid" ];
+  #     then
+  #       rm  $out/lib/node_modules/web3/node_modules/uuid
+  #     fi
+  #     '';
+  #   };
+  # };
+  # "hardhat-gas-reporter" = {
+  #   stop = {
+  #     postFixup = ''
+  #       rm  $out/lib/node_modules/hardhat-gas-reporter/node_modules/uuid
+  #     '';
+  #   };
+  # };
+  # "solidity-coverage" = {
+  #   stop = {
+  #     postFixup = ''
+  #       rm  $out/lib/node_modules/solidity-coverage/node_modules/uuid
+  #     '';
+  #   };
+  # };
+  # "ethereum-waffle" = {
+  #   stop = {
+  #     postFixup = ''
+  #       rm  $out/lib/node_modules/ethereum-waffle/node_modules/uuid
+  #     '';
+  #   };
+  # };
+  # "ethereumjs-wallet" = {
+  #   stop = {
+  #     postFixup = ''
+  #       rm  $out/lib/node_modules/ethereumjs-wallet/node_modules/uuid
+  #     '';
+  #   };
+  # };
+  # "@ethereum-waffle/chai" = {
+  #   stop = {
+  #     postFixup = ''
+  #       rm  $out/lib/node_modules/@ethereum-waffle/chai/node_modules/uuid
+  #     '';
+  #   };
+  # };
+  # "web3-eth" = {
+  #   stop = {
+  #     _condition = satisfiesSemver "^1.5.3";
+  #     postFixup = ''
+  #     if [ -h "$out/lib/node_modules/web3-eth/node_modules/uuid" ];
+  #     then
+  #       rm  $out/lib/node_modules/web3-eth/node_modules/uuid
+  #     fi
+  #     '';
+  #   };
+  # };
+  # "web3-eth-accounts" = {
+  #   stop = {
+  #     postFixup = ''
+  #       rm  $out/lib/node_modules/web3-eth-accounts/node_modules/uuid
+  #     '';
+  #   };
+  # };
+  "@ledgerhq/hw-transport-node-hid" = {
+    stop = {
+      postFixup = ''
+        rm  $out/lib/node_modules/@ledgerhq/hw-transport-node-hid/node_modules/node-hid
+      '';
+    };
+  };
+  "@ledgerhq/hw-transport-node-hid-noevents" = {
+    stop = {
+      postFixup = ''
+        rm  $out/lib/node_modules/@ledgerhq/hw-transport-node-hid-noevents/node_modules/node-hid
+      '';
+    };
+  };
+
+  "@ethersproject/hardware-wallets" = {
+    stop = {
+      postFixup = ''
+        if [ -h "$out/lib/node_modules/@ethersproject/hardware-wallets/node_modules/node-hid" ];
+        then
+          rm  $out/lib/node_modules/@ethersproject/hardware-wallets/node_modules/node-hid
+        fi
+      '';
+    };
+  };
   optimism = {
     inherit add-solc;
     add-inputs = {
@@ -502,6 +591,6 @@ in
   };
   usb.build = {
     buildInputs = with pkgs; [ udev python3 ];
-    nativeBuildInputs = with pkgs; [ jq nodePackages.npm nodejs ];
+    nativeBuildInputs = with pkgs; [ jq nodePackages.npm nodejs-14_x ];
   };
 }
