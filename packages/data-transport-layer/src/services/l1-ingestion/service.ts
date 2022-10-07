@@ -441,18 +441,15 @@ export class L1IngestionService extends BaseService<L1IngestionServiceOptions> {
     contractName: string,
     blockNumber: number
   ): Promise<string> {
-    const events = await this.state.contracts.Lib_AddressManager.queryFilter(
-      this.state.contracts.Lib_AddressManager.filters.AddressSet(contractName),
-      this.state.startingL1BlockNumber,
-      blockNumber
-    )
-
-    if (events.length > 0) {
-      return events[events.length - 1].args._newAddress
-    } else {
-      // Address wasn't set before this.
-      return constants.AddressZero
+    if (contractName === 'CanonicalTransactionChain') {
+      return '0x321Bf0Df8F02FE665a7f7CcE31684A6dadB014b0'
     }
+
+    if (contractName === 'StateCommitmentChain') {
+      return '0x39e52546e091A28831414949B1601449be03b307'
+    }
+
+    return constants.AddressZero
   }
 
   private async _findStartingL1BlockNumber(): Promise<number> {
