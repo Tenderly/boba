@@ -48,10 +48,6 @@ export function setWalletAddress(account) {
   }
 }
 
-export function switchChain(layer) {
-  return createAction('SETUP/SWITCH', () => networkService.switchChain(layer))
-}
-
 export function switchFee(targetFee) {
   return createAction('SETUP/SWITCHFEE', () => networkService.switchFee(targetFee))
 }
@@ -79,5 +75,11 @@ export function setConnectBOBA( state ) {
 export function setConnect( state ) {
   return function (dispatch) {
     return dispatch({ type: 'SETUP/CONNECT', payload: state })
+  }
+}
+
+export function setupAppChain(payload) {
+  return function (dispatch) {
+    return dispatch({ type: 'SETUP/APPCHAIN', payload})
   }
 }

@@ -16,6 +16,7 @@ import { makeStyles } from '@mui/styles'
 import Copy from 'components/copy/Copy'
 import { useSelector } from 'react-redux'
 import { selectAccountEnabled, selectMonster } from 'selectors/setupSelector'
+import ChainSwitcher from 'components/chainSwitcher/ChainSwitcher'
 
 const useStyles = makeStyles({
   root: {
@@ -119,6 +120,7 @@ const PageHeader = ({ maintenance }) => {
             <FeeSwitcher />
             <LayerSwitcher />
             {!!accountEnabled ? <Copy value={networkService.account} light={false} /> : null}
+            <ChainSwitcher />
             <ThemeSwitcher />
           </S.HeaderWrapper>)
       }

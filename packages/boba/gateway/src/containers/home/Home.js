@@ -57,7 +57,8 @@ import {
 import {
   selectBaseEnabled,
   selectAccountEnabled,
-  selectNetwork
+  selectNetwork,
+  selectAppChain
 } from 'selectors/setupSelector'
 import { selectAlert, selectError } from 'selectors/uiSelector'
 import { selectModalState } from 'selectors/uiSelector'
@@ -133,6 +134,7 @@ function Home() {
   const network = useSelector(selectNetwork())
   const baseEnabled = useSelector(selectBaseEnabled())
   const accountEnabled = useSelector(selectAccountEnabled())
+  const appChain = useSelector(selectAppChain())
 
   const handleErrorClose = () => dispatch(closeError())
   const handleAlertClose = () => dispatch(closeAlert())
@@ -156,7 +158,7 @@ function Home() {
 
     async function initializeBase() {
       console.log("Calling initializeBase for", network)
-      const initialized = await networkService.initializeBase( network )
+      const initialized = await networkService.initializeBase( network, appChain )
       if (!initialized) {
         console.log("Failed to boot L1 and L2 base providers for", network)
         dispatch(setBaseState(false))
@@ -171,7 +173,7 @@ function Home() {
       }
     }
 
-  }, [ dispatch, network, baseEnabled, maintenance ])
+  }, [ dispatch, network, baseEnabled, maintenance,appChain ])
 
   useInterval(() => {
     if(accountEnabled /*== MetaMask is connected*/) {

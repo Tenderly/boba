@@ -93,3 +93,9 @@ export function selectMonsterInfo () {
     return state.nft['monsterInfo']
   }
 }
+
+export function selectAppChain() {
+  return function (state) {
+    return state.setup['appChain']
+  }
+}

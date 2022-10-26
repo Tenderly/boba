@@ -32,7 +32,8 @@ const initialState = {
   bobaFeeChoice: null,
   connectETH: false,
   connectBOBA: false,
-  connect: false
+  connect: false,
+  appChain: null,
 }
 
 function setupReducer (state = initialState, action) {
@@ -88,18 +89,21 @@ function setupReducer (state = initialState, action) {
         justSwitchedChain: true
       }
     case 'SETUP/SWITCH/SUCCESS':
-      console.log("SR:SUCCESS - setting just changed to true")
       localStorage.setItem("justSwitchedChain", JSON.stringify(true))
       return {
         ...state,
         justSwitchedChain: true
       }
     case 'BOBAFEE/ADD/SUCCESS':
-      console.log("BOBAFEE/ADD/SUCCESS:",action.payload)
       return {
         ...state,
         bobaFeePriceRatio: action.payload.priceRatio,
         bobaFeeChoice: action.payload.feeChoice
+      }
+    case 'SETUP/APPCHAIN':
+      return {
+        ...state,
+        appChain: action.payload
       }
     default:
       return state

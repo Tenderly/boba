@@ -28,7 +28,8 @@ import {
   selectLayer,
   selectConnectETH,
   selectConnectBOBA,
-  selectConnect
+  selectConnect,
+  selectAppChain
 } from 'selectors/setupSelector'
 
 import * as S from './LayerSwitcher.styles.js'
@@ -62,6 +63,7 @@ function LayerSwitcher({
   const connectETHRequest = useSelector(selectConnectETH())
   const connectBOBARequest = useSelector(selectConnectBOBA())
   const connectRequest = useSelector(selectConnect())
+  const appChain = useSelector(selectAppChain())
 
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
@@ -78,7 +80,7 @@ function LayerSwitcher({
 
     async function initializeAccount() {
 
-      const initialized = await networkService.initializeAccount(network)
+      const initialized = await networkService.initializeAccount(network, appChain)
 
       console.log("initialized:",initialized)
 
@@ -105,19 +107,19 @@ function LayerSwitcher({
       }
     }
 
-  }, [ dispatch, accountEnabled, network ])
+  }, [ dispatch, accountEnabled, network, appChain ])
 
   // this will switch chain, if needed, and then connect to Boba
   const connectToBOBA = useCallback(() => {
     localStorage.setItem('wantChain', JSON.stringify('L2'))
-    networkService.switchChain('L2')
+    networkService.switchChain('L2', appChain)
     dispatchBootAccount()
   }, [dispatchBootAccount])
 
    // this will switch chain, if needed, and then connect to Ethereum
   const connectToETH = useCallback(() => {
     localStorage.setItem('wantChain', JSON.stringify('L1'))
-    networkService.switchChain('L1')
+    networkService.switchChain('L1', appChain)
     dispatchBootAccount()
   }, [dispatchBootAccount])
 
@@ -167,7 +169,7 @@ function LayerSwitcher({
   useEffect(() => {
     if(connectETHRequest) {
       localStorage.setItem('wantChain', JSON.stringify('L1'))
-      networkService.switchChain('L1')
+      networkService.switchChain('L1',appChain)
       dispatchBootAccount()
     }
   }, [ connectETHRequest, dispatchBootAccount ])
@@ -175,7 +177,7 @@ function LayerSwitcher({
   useEffect(() => {
     if (connectBOBARequest) {
       localStorage.setItem('wantChain', JSON.stringify('L2'))
-      networkService.switchChain('L2')
+      networkService.switchChain('L2', appChain)
       dispatchBootAccount()
     }
   }, [ connectBOBARequest, dispatchBootAccount ])
