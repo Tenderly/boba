@@ -157,6 +157,8 @@ jobs:
           name: Bring up the stack
           command: |
             ./scripts/build-ci.sh
+            docker-compose -f docker-compose.yml -f docker-compose-side.yml build --parallel -- monitor gas_oracle bundler
+            docker images
             BUILD=2 DAEMON=1 ./up_local.sh
           working_directory: ops
       - run:
