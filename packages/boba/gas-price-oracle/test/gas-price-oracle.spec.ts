@@ -7,12 +7,6 @@ import { getContractFactory } from '@eth-optimism/contracts'
 import { GasPriceOracleService } from '../dist/service'
 import fs, { promises as fsPromise } from 'fs'
 import path from 'path'
-import {
-  AppendSequencerBatchParams,
-  encodeAppendSequencerBatch,
-} from '@eth-optimism/core-utils'
-import { TransactionResponse } from '@ethersproject/abstract-provider'
-import { keccak256 } from 'ethers/lib/utils'
 
 describe('gas-price-oracle', () => {
   let signer1: Signer
@@ -83,10 +77,6 @@ describe('gas-price-oracle', () => {
 
   let Factory__L2BOBA: ContractFactory
   let L2BOBA: Contract
-
-  let Factory__ChainStorageContainer: ContractFactory
-  let batches: Contract
-  let queue: Contract
 
   before(async () => {
     Factory__Lib_AddressManager = getContractFactory(
@@ -576,7 +566,6 @@ describe('gas-price-oracle', () => {
       minL1BaseFee: 50_000_000_000,
       maxL1BaseFee: 100_000_000_000,
       bobaFeeRatio100X: 800,
-      bobaFeeRatioMinPercentChange: 3000,
       bobaLocalTestnetChainId: 31337,
     })
 
