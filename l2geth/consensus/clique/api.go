@@ -19,10 +19,10 @@ package clique
 import (
 	"fmt"
 
-	"github.com/ethereum-optimism/optimism/l2geth/common"
-	"github.com/ethereum-optimism/optimism/l2geth/consensus"
-	"github.com/ethereum-optimism/optimism/l2geth/core/types"
-	"github.com/ethereum-optimism/optimism/l2geth/rpc"
+	"github.com/tenderly/boba/l2geth/common"
+	"github.com/tenderly/boba/l2geth/consensus"
+	"github.com/tenderly/boba/l2geth/core/types"
+	"github.com/tenderly/boba/l2geth/rpc"
 )
 
 // API is a user facing RPC API to allow controlling the signer and voting

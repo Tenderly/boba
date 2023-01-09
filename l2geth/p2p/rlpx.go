@@ -35,11 +35,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum-optimism/optimism/l2geth/common/bitutil"
-	"github.com/ethereum-optimism/optimism/l2geth/crypto"
-	"github.com/ethereum-optimism/optimism/l2geth/crypto/ecies"
-	"github.com/ethereum-optimism/optimism/l2geth/metrics"
-	"github.com/ethereum-optimism/optimism/l2geth/rlp"
+	"github.com/tenderly/boba/l2geth/common/bitutil"
+	"github.com/tenderly/boba/l2geth/crypto"
+	"github.com/tenderly/boba/l2geth/crypto/ecies"
+	"github.com/tenderly/boba/l2geth/metrics"
+	"github.com/tenderly/boba/l2geth/rlp"
 	"github.com/golang/snappy"
 	"golang.org/x/crypto/sha3"
 )

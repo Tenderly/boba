@@ -23,12 +23,12 @@ import (
 	"encoding/binary"
 	"sync/atomic"
 
-	"github.com/ethereum-optimism/optimism/l2geth/accounts/abi/bind"
-	"github.com/ethereum-optimism/optimism/l2geth/common"
-	"github.com/ethereum-optimism/optimism/l2geth/contracts/checkpointoracle"
-	"github.com/ethereum-optimism/optimism/l2geth/crypto"
-	"github.com/ethereum-optimism/optimism/l2geth/log"
-	"github.com/ethereum-optimism/optimism/l2geth/params"
+	"github.com/tenderly/boba/l2geth/accounts/abi/bind"
+	"github.com/tenderly/boba/l2geth/common"
+	"github.com/tenderly/boba/l2geth/contracts/checkpointoracle"
+	"github.com/tenderly/boba/l2geth/crypto"
+	"github.com/tenderly/boba/l2geth/log"
+	"github.com/tenderly/boba/l2geth/params"
 )
 
 // CheckpointOracle is responsible for offering the latest stable checkpoint

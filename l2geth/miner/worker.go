@@ -26,15 +26,15 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/ethereum-optimism/optimism/l2geth/common"
-	"github.com/ethereum-optimism/optimism/l2geth/consensus"
-	"github.com/ethereum-optimism/optimism/l2geth/consensus/misc"
-	"github.com/ethereum-optimism/optimism/l2geth/core"
-	"github.com/ethereum-optimism/optimism/l2geth/core/state"
-	"github.com/ethereum-optimism/optimism/l2geth/core/types"
-	"github.com/ethereum-optimism/optimism/l2geth/event"
-	"github.com/ethereum-optimism/optimism/l2geth/log"
-	"github.com/ethereum-optimism/optimism/l2geth/params"
+	"github.com/tenderly/boba/l2geth/common"
+	"github.com/tenderly/boba/l2geth/consensus"
+	"github.com/tenderly/boba/l2geth/consensus/misc"
+	"github.com/tenderly/boba/l2geth/core"
+	"github.com/tenderly/boba/l2geth/core/state"
+	"github.com/tenderly/boba/l2geth/core/types"
+	"github.com/tenderly/boba/l2geth/event"
+	"github.com/tenderly/boba/l2geth/log"
+	"github.com/tenderly/boba/l2geth/params"
 )
 
 const (

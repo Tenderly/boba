@@ -24,11 +24,11 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/ethereum-optimism/optimism/l2geth/common"
-	"github.com/ethereum-optimism/optimism/l2geth/core/forkid"
-	"github.com/ethereum-optimism/optimism/l2geth/core/types"
-	"github.com/ethereum-optimism/optimism/l2geth/p2p"
-	"github.com/ethereum-optimism/optimism/l2geth/rlp"
+	"github.com/tenderly/boba/l2geth/common"
+	"github.com/tenderly/boba/l2geth/core/forkid"
+	"github.com/tenderly/boba/l2geth/core/types"
+	"github.com/tenderly/boba/l2geth/p2p"
+	"github.com/tenderly/boba/l2geth/rlp"
 )
 
 var (

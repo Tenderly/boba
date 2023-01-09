@@ -19,9 +19,9 @@ package whisperv6
 import (
 	"bytes"
 
-	"github.com/ethereum-optimism/optimism/l2geth/crypto"
-	"github.com/ethereum-optimism/optimism/l2geth/rlp"
-	"github.com/ethereum-optimism/optimism/l2geth/whisper/whisperv6"
+	"github.com/tenderly/boba/l2geth/crypto"
+	"github.com/tenderly/boba/l2geth/rlp"
+	"github.com/tenderly/boba/l2geth/whisper/whisperv6"
 )
 
 type MessageParams struct {

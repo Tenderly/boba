@@ -22,12 +22,12 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/ethereum-optimism/optimism/l2geth/common"
-	"github.com/ethereum-optimism/optimism/l2geth/consensus/ethash"
-	"github.com/ethereum-optimism/optimism/l2geth/core/rawdb"
-	"github.com/ethereum-optimism/optimism/l2geth/core/vm"
-	"github.com/ethereum-optimism/optimism/l2geth/ethdb"
-	"github.com/ethereum-optimism/optimism/l2geth/params"
+	"github.com/tenderly/boba/l2geth/common"
+	"github.com/tenderly/boba/l2geth/consensus/ethash"
+	"github.com/tenderly/boba/l2geth/core/rawdb"
+	"github.com/tenderly/boba/l2geth/core/vm"
+	"github.com/tenderly/boba/l2geth/ethdb"
+	"github.com/tenderly/boba/l2geth/params"
 )
 
 func TestDefaultGenesisBlock(t *testing.T) {

@@ -31,7 +31,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum-optimism/optimism/l2geth/params"
+	"github.com/tenderly/boba/l2geth/params"
 )
 
 // Command line flags to configure the interpreters.

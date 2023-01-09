@@ -29,10 +29,10 @@ import (
 	"testing"
 	"testing/quick"
 
-	"github.com/ethereum-optimism/optimism/l2geth/common"
-	"github.com/ethereum-optimism/optimism/l2geth/core/rawdb"
-	"github.com/ethereum-optimism/optimism/l2geth/core/types"
-	"github.com/ethereum-optimism/optimism/l2geth/rollup/rcfg"
+	"github.com/tenderly/boba/l2geth/common"
+	"github.com/tenderly/boba/l2geth/core/rawdb"
+	"github.com/tenderly/boba/l2geth/core/types"
+	"github.com/tenderly/boba/l2geth/rollup/rcfg"
 )
 
 // Tests that updating a state trie does not leak any database writes prior to
@@ -493,7 +493,7 @@ func TestCopyOfCopy(t *testing.T) {
 // Tests a regression where committing a copy lost some internal meta information,
 // leading to corrupted subsequent copies.
 //
-// See https://github.com/ethereum-optimism/optimism/l2geth/issues/20106.
+// See https://github.com/tenderly/boba/l2geth/issues/20106.
 func TestCopyCommitCopy(t *testing.T) {
 	state, _ := New(common.Hash{}, NewDatabase(rawdb.NewMemoryDatabase()))
 
@@ -565,7 +565,7 @@ func TestCopyCommitCopy(t *testing.T) {
 // Tests a regression where committing a copy lost some internal meta information,
 // leading to corrupted subsequent copies.
 //
-// See https://github.com/ethereum-optimism/optimism/l2geth/issues/20106.
+// See https://github.com/tenderly/boba/l2geth/issues/20106.
 func TestCopyCopyCommitCopy(t *testing.T) {
 	state, _ := New(common.Hash{}, NewDatabase(rawdb.NewMemoryDatabase()))
 

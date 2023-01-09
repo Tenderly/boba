@@ -19,15 +19,15 @@ package main
 import (
 	"strconv"
 
-	"github.com/ethereum-optimism/optimism/l2geth/accounts"
-	"github.com/ethereum-optimism/optimism/l2geth/accounts/abi/bind"
-	"github.com/ethereum-optimism/optimism/l2geth/accounts/external"
-	"github.com/ethereum-optimism/optimism/l2geth/cmd/utils"
-	"github.com/ethereum-optimism/optimism/l2geth/common"
-	"github.com/ethereum-optimism/optimism/l2geth/contracts/checkpointoracle"
-	"github.com/ethereum-optimism/optimism/l2geth/ethclient"
-	"github.com/ethereum-optimism/optimism/l2geth/params"
-	"github.com/ethereum-optimism/optimism/l2geth/rpc"
+	"github.com/tenderly/boba/l2geth/accounts"
+	"github.com/tenderly/boba/l2geth/accounts/abi/bind"
+	"github.com/tenderly/boba/l2geth/accounts/external"
+	"github.com/tenderly/boba/l2geth/cmd/utils"
+	"github.com/tenderly/boba/l2geth/common"
+	"github.com/tenderly/boba/l2geth/contracts/checkpointoracle"
+	"github.com/tenderly/boba/l2geth/ethclient"
+	"github.com/tenderly/boba/l2geth/params"
+	"github.com/tenderly/boba/l2geth/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

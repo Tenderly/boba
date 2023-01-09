@@ -26,14 +26,14 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ethereum-optimism/optimism/l2geth/accounts"
-	"github.com/ethereum-optimism/optimism/l2geth/core/rawdb"
-	"github.com/ethereum-optimism/optimism/l2geth/ethdb"
-	"github.com/ethereum-optimism/optimism/l2geth/event"
-	"github.com/ethereum-optimism/optimism/l2geth/internal/debug"
-	"github.com/ethereum-optimism/optimism/l2geth/log"
-	"github.com/ethereum-optimism/optimism/l2geth/p2p"
-	"github.com/ethereum-optimism/optimism/l2geth/rpc"
+	"github.com/tenderly/boba/l2geth/accounts"
+	"github.com/tenderly/boba/l2geth/core/rawdb"
+	"github.com/tenderly/boba/l2geth/ethdb"
+	"github.com/tenderly/boba/l2geth/event"
+	"github.com/tenderly/boba/l2geth/internal/debug"
+	"github.com/tenderly/boba/l2geth/log"
+	"github.com/tenderly/boba/l2geth/p2p"
+	"github.com/tenderly/boba/l2geth/rpc"
 	"github.com/prometheus/tsdb/fileutil"
 )
 

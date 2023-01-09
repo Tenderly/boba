@@ -26,28 +26,28 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/ethereum-optimism/optimism/l2geth/accounts"
-	"github.com/ethereum-optimism/optimism/l2geth/accounts/abi"
-	"github.com/ethereum-optimism/optimism/l2geth/accounts/keystore"
-	"github.com/ethereum-optimism/optimism/l2geth/accounts/scwallet"
-	"github.com/ethereum-optimism/optimism/l2geth/common"
-	"github.com/ethereum-optimism/optimism/l2geth/common/hexutil"
-	"github.com/ethereum-optimism/optimism/l2geth/common/math"
-	"github.com/ethereum-optimism/optimism/l2geth/consensus/clique"
-	"github.com/ethereum-optimism/optimism/l2geth/consensus/ethash"
-	"github.com/ethereum-optimism/optimism/l2geth/core"
-	"github.com/ethereum-optimism/optimism/l2geth/core/rawdb"
-	"github.com/ethereum-optimism/optimism/l2geth/core/types"
-	"github.com/ethereum-optimism/optimism/l2geth/core/vm"
-	"github.com/ethereum-optimism/optimism/l2geth/crypto"
-	"github.com/ethereum-optimism/optimism/l2geth/ethclient"
-	"github.com/ethereum-optimism/optimism/l2geth/log"
-	"github.com/ethereum-optimism/optimism/l2geth/p2p"
-	"github.com/ethereum-optimism/optimism/l2geth/params"
-	"github.com/ethereum-optimism/optimism/l2geth/rlp"
-	"github.com/ethereum-optimism/optimism/l2geth/rollup/fees"
-	"github.com/ethereum-optimism/optimism/l2geth/rollup/rcfg"
-	"github.com/ethereum-optimism/optimism/l2geth/rpc"
+	"github.com/tenderly/boba/l2geth/accounts"
+	"github.com/tenderly/boba/l2geth/accounts/abi"
+	"github.com/tenderly/boba/l2geth/accounts/keystore"
+	"github.com/tenderly/boba/l2geth/accounts/scwallet"
+	"github.com/tenderly/boba/l2geth/common"
+	"github.com/tenderly/boba/l2geth/common/hexutil"
+	"github.com/tenderly/boba/l2geth/common/math"
+	"github.com/tenderly/boba/l2geth/consensus/clique"
+	"github.com/tenderly/boba/l2geth/consensus/ethash"
+	"github.com/tenderly/boba/l2geth/core"
+	"github.com/tenderly/boba/l2geth/core/rawdb"
+	"github.com/tenderly/boba/l2geth/core/types"
+	"github.com/tenderly/boba/l2geth/core/vm"
+	"github.com/tenderly/boba/l2geth/crypto"
+	"github.com/tenderly/boba/l2geth/ethclient"
+	"github.com/tenderly/boba/l2geth/log"
+	"github.com/tenderly/boba/l2geth/p2p"
+	"github.com/tenderly/boba/l2geth/params"
+	"github.com/tenderly/boba/l2geth/rlp"
+	"github.com/tenderly/boba/l2geth/rollup/fees"
+	"github.com/tenderly/boba/l2geth/rollup/rcfg"
+	"github.com/tenderly/boba/l2geth/rpc"
 	"github.com/tyler-smith/go-bip39"
 )
 
@@ -426,7 +426,7 @@ func (s *PrivateAccountAPI) SignTransaction(ctx context.Context, args SendTxArgs
 //
 // The key used to calculate the signature is decrypted with the given password.
 //
-// https://github.com/ethereum-optimism/optimism/l2geth/wiki/Management-APIs#personal_sign
+// https://github.com/tenderly/boba/l2geth/wiki/Management-APIs#personal_sign
 func (s *PrivateAccountAPI) Sign(ctx context.Context, data hexutil.Bytes, addr common.Address, passwd string) (hexutil.Bytes, error) {
 	// Look up the wallet containing the requested signer
 	account := accounts.Account{Address: addr}
@@ -454,7 +454,7 @@ func (s *PrivateAccountAPI) Sign(ctx context.Context, data hexutil.Bytes, addr c
 // Note, the signature must conform to the secp256k1 curve R, S and V values, where
 // the V value must be 27 or 28 for legacy reasons.
 //
-// https://github.com/ethereum-optimism/optimism/l2geth/wiki/Management-APIs#personal_ecRecover
+// https://github.com/tenderly/boba/l2geth/wiki/Management-APIs#personal_ecRecover
 func (s *PrivateAccountAPI) EcRecover(ctx context.Context, data, sig hexutil.Bytes) (common.Address, error) {
 	if len(sig) != crypto.SignatureLength {
 		return common.Address{}, fmt.Errorf("signature must be %d bytes long", crypto.SignatureLength)

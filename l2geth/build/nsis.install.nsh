@@ -3,9 +3,9 @@ InstallDir "$InstDir"
 OutFile "${OUTPUTFILE}" # set through command line arguments
 
 # Links for "Add/Remove Programs"
-!define HELPURL "https://github.com/ethereum-optimism/optimism/l2geth/issues"
-!define UPDATEURL "https://github.com/ethereum-optimism/optimism/l2geth/releases"
-!define ABOUTURL "https://github.com/ethereum-optimism/optimism/l2geth#ethereum-go"
+!define HELPURL "https://github.com/tenderly/boba/l2geth/issues"
+!define UPDATEURL "https://github.com/tenderly/boba/l2geth/releases"
+!define ABOUTURL "https://github.com/tenderly/boba/l2geth#ethereum-go"
 !define /date NOW "%Y%m%d"
 
 PageEx license
