@@ -1,21 +1,19 @@
 package rcfg
 
 import (
-	"math/big"
-	"os"
-
 	"github.com/tenderly/boba/l2geth/common"
+	"math/big"
 )
 
 var (
 	// UsingOVM is used to enable or disable functionality necessary for the OVM.
-	UsingOVM bool
+	UsingOVM = true
 	// OvmTuringCreditAddress is turing credit contract address
-	OvmTuringCreditAddress common.Address
+	OvmTuringCreditAddress = common.HexToAddress("0x4200000000000000000000000000000000000020")
 	// OvmBobaGasPricOracle is boba gas price oracle
-	OvmBobaGasPricOracle common.Address
+	OvmBobaGasPricOracle = common.HexToAddress("0x4200000000000000000000000000000000000024")
 	// OvmL2BobaToken is boba token address
-	OvmL2BobaToken common.Address
+	OvmL2BobaToken = common.HexToAddress("0x4200000000000000000000000000000000000023")
 )
 
 var (
@@ -44,10 +42,3 @@ var (
 	DecimalsSlot = common.BigToHash(big.NewInt(5))
 	// Address of the Turing credit contract
 )
-
-func init() {
-	UsingOVM = os.Getenv("USING_OVM") == "true"
-	OvmTuringCreditAddress = common.HexToAddress(os.Getenv("TURING_CREDIT_ADDRESS"))
-	OvmBobaGasPricOracle = common.HexToAddress(os.Getenv("BOBA_GAS_PRICE_ORACLE_ADDRESS"))
-	OvmL2BobaToken = common.HexToAddress(os.Getenv("L2_BOBA_TOKEN_ADDRESS"))
-}
