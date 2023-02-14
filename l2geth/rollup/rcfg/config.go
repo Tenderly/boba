@@ -9,11 +9,11 @@ var (
 	// UsingOVM is used to enable or disable functionality necessary for the OVM.
 	UsingOVM = true
 	// OvmTuringCreditAddress is turing credit contract address
-	OvmTuringCreditAddress = common.HexToAddress("0x4200000000000000000000000000000000000020")
+	OvmTuringCreditAddress = common.HexToAddress("0xF8D2f1b0292C0Eeef80D8F47661A9DaCDB4b23bf")
 	// OvmBobaGasPricOracle is boba gas price oracle
-	OvmBobaGasPricOracle = common.HexToAddress("0x4200000000000000000000000000000000000024")
+	OvmBobaGasPricOracle = common.HexToAddress("0xeE06ee2F239d2ab11792D77f3C347d919ddA0d51")
 	// OvmL2BobaToken is boba token address
-	OvmL2BobaToken = common.HexToAddress("0x4200000000000000000000000000000000000023")
+	OvmL2BobaToken = common.HexToAddress("0xF8D2f1b0292C0Eeef80D8F47661A9DaCDB4b23bf")
 )
 
 var (
