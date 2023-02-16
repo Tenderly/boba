@@ -13,7 +13,7 @@ var (
 	// OvmBobaGasPricOracle is boba gas price oracle
 	OvmBobaGasPricOracle = common.HexToAddress("0xeE06ee2F239d2ab11792D77f3C347d919ddA0d51")
 	// OvmL2BobaToken is boba token address
-	OvmL2BobaToken = common.HexToAddress("0xF8D2f1b0292C0Eeef80D8F47661A9DaCDB4b23bf")
+	OvmL2BobaToken = common.HexToAddress("0xa18bF3994C0Cc6E3b63ac420308E5383f53120D7")
 )
 
 var (
