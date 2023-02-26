@@ -362,7 +362,7 @@ func (st *StateTransition) TransitionDb() (ret []byte, usedGas uint64, failed bo
 	if st.isBobaFeeTokenSelect {
 		ethval := new(big.Int).Mul(new(big.Int).SetUint64(st.gasUsed()), st.msg.GasPrice())
 		bobaval := new(big.Int).Mul(ethval, st.bobaPriceRatio)
-		st.state.AddBobaBalance(rcfg.OvmBobaGasPricOracle, bobaval)
+		st.state.AddBobaBalance(st.state.OvmBobaGasPriceOracleAddress(), bobaval)
 	}
 
 	// GasUsed hard fork
