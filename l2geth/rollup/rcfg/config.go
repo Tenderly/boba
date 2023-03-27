@@ -1,10 +1,8 @@
 package rcfg
 
 import (
-	"math/big"
-	"os"
-
 	"github.com/tenderly/boba/l2geth/common"
+	"math/big"
 )
 
 var (
@@ -44,9 +42,3 @@ var (
 	DecimalsSlot = common.BigToHash(big.NewInt(5))
 	// Address of the Turing credit contract
 )
-
-func init() {
-	OvmTuringCreditAddress = common.HexToAddress(os.Getenv("TURING_CREDIT_ADDRESS"))
-	OvmBobaGasPricOracle = common.HexToAddress(os.Getenv("BOBA_GAS_PRICE_ORACLE_ADDRESS"))
-	OvmL2BobaToken = common.HexToAddress(os.Getenv("L2_BOBA_TOKEN_ADDRESS"))
-}

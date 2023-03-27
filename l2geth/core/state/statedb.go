@@ -287,28 +287,28 @@ func (s *StateDB) GetBalance(addr common.Address) *big.Int {
 func (s *StateDB) GetBobaBalance(addr common.Address) *big.Int {
 	// Get balance from the BOBA contract.
 	key := GetBobaBalanceKey(addr)
-	bal := s.GetState(rcfg.OvmL2BobaToken, key)
+	bal := s.GetState(s.OVML2BobaTokenAddress(), key)
 	return bal.Big()
 }
 
 // Retrieve the fee token selection
 func (s *StateDB) GetFeeTokenSelection(addr common.Address) *big.Int {
 	key := GetFeeTokenSelectionKey(addr)
-	bal := s.GetState(rcfg.OvmBobaGasPricOracle, key)
+	bal := s.GetState(s.OVMBobaGasPriceOracleAddress(), key)
 	return bal.Big()
 }
 
 // Retrieve the price ratio of BOBA and ETH
 func (s *StateDB) GetBobaPriceRatio() *big.Int {
 	keyPriceRatio := common.BigToHash(big.NewInt(5))
-	value := s.GetState(rcfg.OvmBobaGasPricOracle, keyPriceRatio)
+	value := s.GetState(s.OVMBobaGasPriceOracleAddress(), keyPriceRatio)
 	return value.Big()
 }
 
 // Retrieve the decimals of the price ratio
 func (s *StateDB) GetBobaPriceRatioDecimals() *big.Int {
 	keyPriceRatioDecimals := common.BigToHash(big.NewInt(11))
-	value := s.GetState(rcfg.OvmBobaGasPricOracle, keyPriceRatioDecimals)
+	value := s.GetState(s.OVMBobaGasPriceOracleAddress(), keyPriceRatioDecimals)
 	return value.Big()
 }
 
@@ -432,15 +432,15 @@ func (s *StateDB) TuringCharge(userID common.Address) error {
 	// userID is the address of that user's Turing Helper contract
 
 	keyUser := GetTuringPrepayKey(userID)
-	valueUser := s.GetState(rcfg.OvmTuringCreditAddress, keyUser)
+	valueUser := s.GetState(s.OVMTuringCreditAddress(), keyUser)
 	balUser := valueUser.Big()
 
 	keyPrice := common.BigToHash(big.NewInt(3))
-	value := s.GetState(rcfg.OvmTuringCreditAddress, keyPrice)
+	value := s.GetState(s.OVMTuringCreditAddress(), keyPrice)
 	price := value.Big()
 
 	keyOwner := common.BigToHash(big.NewInt(4))
-	valueOwner := s.GetState(rcfg.OvmTuringCreditAddress, keyOwner)
+	valueOwner := s.GetState(s.OVMTuringCreditAddress(), keyOwner)
 	balOwner := valueOwner.Big()
 
 	log.Trace("TURING-CREDIT:Before", "balUser", balUser, "price", price)
@@ -455,8 +455,8 @@ func (s *StateDB) TuringCharge(userID common.Address) error {
 	balOwner = balOwner.Add(balOwner, price)
 
 	//set the states
-	s.SetState(rcfg.OvmTuringCreditAddress, keyUser, common.BigToHash(balUser))
-	s.SetState(rcfg.OvmTuringCreditAddress, keyOwner, common.BigToHash(balOwner))
+	s.SetState(s.OVMTuringCreditAddress(), keyUser, common.BigToHash(balUser))
+	s.SetState(s.OVMTuringCreditAddress(), keyOwner, common.BigToHash(balOwner))
 
 	log.Debug("TURING-CREDIT:Payment completed", "balUser", balUser, "balOwner", balOwner, "price", price)
 
@@ -468,11 +468,11 @@ func (s *StateDB) TuringCheck(userID common.Address) error {
 	// userID is the address of that user's Turing Helper contract
 	// checks for sufficient credit
 	keyUser := GetTuringPrepayKey(userID)
-	valueUser := s.GetState(rcfg.OvmTuringCreditAddress, keyUser)
+	valueUser := s.GetState(s.OVMTuringCreditAddress(), keyUser)
 	balUser := valueUser.Big()
 
 	keyPrice := common.BigToHash(big.NewInt(3))
-	value := s.GetState(rcfg.OvmTuringCreditAddress, keyPrice)
+	value := s.GetState(s.OVMTuringCreditAddress(), keyPrice)
 	price := value.Big()
 
 	if balUser.Cmp(price) < 0 {
@@ -509,10 +509,10 @@ func (s *StateDB) AddBalance(addr common.Address, amount *big.Int) {
 func (s *StateDB) AddBobaBalance(addr common.Address, amount *big.Int) {
 	// Get balance from the BOBA contract.
 	key := GetBobaBalanceKey(addr)
-	value := s.GetState(rcfg.OvmL2BobaToken, key)
+	value := s.GetState(s.OVML2BobaTokenAddress(), key)
 	bal := value.Big()
 	bal = bal.Add(bal, amount)
-	s.SetState(rcfg.OvmL2BobaToken, key, common.BigToHash(bal))
+	s.SetState(s.OVML2BobaTokenAddress(), key, common.BigToHash(bal))
 }
 
 // SubBalance subtracts amount from the account associated with addr.
@@ -539,25 +539,25 @@ func (s *StateDB) SubBalance(addr common.Address, amount *big.Int) {
 func (s *StateDB) SubBobaBalance(addr common.Address, amount *big.Int) {
 	// Get balance from the BOBA contract.
 	key := GetBobaBalanceKey(addr)
-	value := s.GetState(rcfg.OvmL2BobaToken, key)
+	value := s.GetState(s.OVML2BobaTokenAddress(), key)
 	bal := value.Big()
 	bal = bal.Sub(bal, amount)
-	s.SetState(rcfg.OvmL2BobaToken, key, common.BigToHash(bal))
+	s.SetState(s.OVML2BobaTokenAddress(), key, common.BigToHash(bal))
 }
 
 func (s *StateDB) SetBobaAsFeeToken(addr common.Address) {
 	key := GetFeeTokenSelectionKey(addr)
-	s.SetState(rcfg.OvmBobaGasPricOracle, key, common.BigToHash(common.Big1))
+	s.SetState(s.OVMBobaGasPriceOracleAddress(), key, common.BigToHash(common.Big1))
 }
 
 func (s *StateDB) SetBobaPriceRatio(priceRatio *big.Int) {
 	keyPriceRatio := common.BigToHash(big.NewInt(5))
-	s.SetState(rcfg.OvmBobaGasPricOracle, keyPriceRatio, common.BigToHash(priceRatio))
+	s.SetState(s.OVMBobaGasPriceOracleAddress(), keyPriceRatio, common.BigToHash(priceRatio))
 }
 
 func (s *StateDB) SetBobaPriceRatioDecimals(decimals *big.Int) {
 	keyPriceRatioDecimals := common.BigToHash(big.NewInt(11))
-	s.SetState(rcfg.OvmBobaGasPricOracle, keyPriceRatioDecimals, common.BigToHash(decimals))
+	s.SetState(s.OVMBobaGasPriceOracleAddress(), keyPriceRatioDecimals, common.BigToHash(decimals))
 }
 
 func (s *StateDB) SetBalance(addr common.Address, amount *big.Int) {
@@ -1037,4 +1037,16 @@ func (s *StateDB) AddressInAccessList(addr common.Address) bool {
 // SlotInAccessList returns true if the given (address, slot)-tuple is in the access list.
 func (s *StateDB) SlotInAccessList(addr common.Address, slot common.Hash) (addressPresent bool, slotPresent bool) {
 	return s.accessList.Contains(addr, slot)
+}
+
+func (s *StateDB) OVMTuringCreditAddress() common.Address {
+	return rcfg.OvmTuringCreditAddress
+}
+
+func (s *StateDB) OVMBobaGasPriceOracleAddress() common.Address {
+	return rcfg.OvmBobaGasPricOracle
+}
+
+func (s *StateDB) OVML2BobaTokenAddress() common.Address {
+	return rcfg.OvmL2BobaToken
 }
