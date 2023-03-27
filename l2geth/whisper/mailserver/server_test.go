@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum-optimism/optimism/l2geth/common"
-	"github.com/ethereum-optimism/optimism/l2geth/crypto"
-	whisper "github.com/ethereum-optimism/optimism/l2geth/whisper/whisperv6"
+	"github.com/tenderly/boba/l2geth/common"
+	"github.com/tenderly/boba/l2geth/crypto"
+	whisper "github.com/tenderly/boba/l2geth/whisper/whisperv6"
 )
 
 const powRequirement = 0.00001

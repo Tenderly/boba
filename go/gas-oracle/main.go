@@ -5,9 +5,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/ethereum-optimism/optimism/go/gas-oracle/flags"
-	ometrics "github.com/ethereum-optimism/optimism/go/gas-oracle/metrics"
-	"github.com/ethereum-optimism/optimism/go/gas-oracle/oracle"
+	"github.com/tenderly/boba/go/gas-oracle/flags"
+	ometrics "github.com/tenderly/boba/go/gas-oracle/metrics"
+	"github.com/tenderly/boba/go/gas-oracle/oracle"
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/metrics/influxdb"
 	"github.com/ethereum/go-ethereum/params"

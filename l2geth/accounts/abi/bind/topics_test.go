@@ -21,8 +21,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ethereum-optimism/optimism/l2geth/accounts/abi"
-	"github.com/ethereum-optimism/optimism/l2geth/common"
+	"github.com/tenderly/boba/l2geth/accounts/abi"
+	"github.com/tenderly/boba/l2geth/common"
 )
 
 func TestMakeTopics(t *testing.T) {

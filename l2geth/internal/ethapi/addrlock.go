@@ -19,7 +19,7 @@ package ethapi
 import (
 	"sync"
 
-	"github.com/ethereum-optimism/optimism/l2geth/common"
+	"github.com/tenderly/boba/l2geth/common"
 )
 
 type AddrLocker struct {

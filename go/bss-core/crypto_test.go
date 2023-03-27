@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	bsscore "github.com/ethereum-optimism/optimism/go/bss-core"
+	bsscore "github.com/tenderly/boba/go/bss-core"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/stretchr/testify/require"

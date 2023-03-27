@@ -10,7 +10,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ethereum-optimism/optimism/proxyd"
+	"github.com/tenderly/boba/proxyd"
 	"github.com/gorilla/websocket"
 )
 

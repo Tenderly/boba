@@ -238,7 +238,7 @@ export class CrossChainMessenger implements ICrossChainMessenger {
   //     the SentMessage event is not indexed within the CrossChainMessenger contracts.
   //     getMessagesByAddress will be enabled by plugging in an Optimism Indexer (coming soon).
   //     See the following issue on GitHub for additional context:
-  //     https://github.com/ethereum-optimism/optimism/issues/2129
+  //     https://github.com/tenderly/boba/issues/2129
   //   `)
   // }
 
@@ -970,7 +970,7 @@ export class CrossChainMessenger implements ICrossChainMessenger {
     // We need to calculate the specific storage slot that demonstrates that this message was
     // actually included in the L2 chain. The following calculation is based on the fact that
     // messages are stored in the following mapping on L2:
-    // https://github.com/ethereum-optimism/optimism/blob/c84d3450225306abbb39b4e7d6d82424341df2be/packages/contracts/contracts/L2/predeploys/OVM_L2ToL1MessagePasser.sol#L23
+    // https://github.com/tenderly/boba/blob/c84d3450225306abbb39b4e7d6d82424341df2be/packages/contracts/contracts/L2/predeploys/OVM_L2ToL1MessagePasser.sol#L23
     // You can read more about how Solidity storage slots are computed for mappings here:
     // https://docs.soliditylang.org/en/v0.8.4/internals/layout_in_storage.html#mappings-and-dynamic-arrays
     const messageSlot = ethers.utils.keccak256(

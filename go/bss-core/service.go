@@ -7,9 +7,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum-optimism/optimism/go/bss-core/boba"
-	"github.com/ethereum-optimism/optimism/go/bss-core/metrics"
-	"github.com/ethereum-optimism/optimism/go/bss-core/txmgr"
+	"github.com/tenderly/boba/go/bss-core/boba"
+	"github.com/tenderly/boba/go/bss-core/metrics"
+	"github.com/tenderly/boba/go/bss-core/txmgr"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
