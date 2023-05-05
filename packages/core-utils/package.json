@@ -24,12 +24,12 @@
     "core",
     "utils"
   ],
-  "homepage": "https://github.com/ethereum-optimism/optimism/tree/develop/packages/core-utils#readme",
+  "homepage": "https://github.com/tenderly/boba/tree/develop/packages/core-utils#readme",
   "license": "MIT",
   "author": "Optimism PBC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ethereum-optimism/optimism.git"
+    "url": "https://github.com/tenderly/boba.git"
   },
   "dependencies": {
     "@ethersproject/abstract-provider": "^5.7.0",

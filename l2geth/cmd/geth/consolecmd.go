@@ -24,10 +24,10 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/ethereum-optimism/optimism/l2geth/cmd/utils"
-	"github.com/ethereum-optimism/optimism/l2geth/console"
-	"github.com/ethereum-optimism/optimism/l2geth/node"
-	"github.com/ethereum-optimism/optimism/l2geth/rpc"
+	"github.com/tenderly/boba/l2geth/cmd/utils"
+	"github.com/tenderly/boba/l2geth/console"
+	"github.com/tenderly/boba/l2geth/node"
+	"github.com/tenderly/boba/l2geth/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -43,7 +43,7 @@ var (
 		Description: `
 The Geth console is an interactive shell for the JavaScript runtime environment
 which exposes a node admin interface as well as the Ðapp JavaScript API.
-See https://github.com/ethereum-optimism/optimism/l2geth/wiki/JavaScript-Console.`,
+See https://github.com/tenderly/boba/l2geth/wiki/JavaScript-Console.`,
 	}
 
 	attachCommand = cli.Command{
@@ -56,7 +56,7 @@ See https://github.com/ethereum-optimism/optimism/l2geth/wiki/JavaScript-Console
 		Description: `
 The Geth console is an interactive shell for the JavaScript runtime environment
 which exposes a node admin interface as well as the Ðapp JavaScript API.
-See https://github.com/ethereum-optimism/optimism/l2geth/wiki/JavaScript-Console.
+See https://github.com/tenderly/boba/l2geth/wiki/JavaScript-Console.
 This command allows to open a console on a running geth node.`,
 	}
 
@@ -69,7 +69,7 @@ This command allows to open a console on a running geth node.`,
 		Category:  "CONSOLE COMMANDS",
 		Description: `
 The JavaScript VM exposes a node admin interface as well as the Ðapp
-JavaScript API. See https://github.com/ethereum-optimism/optimism/l2geth/wiki/JavaScript-Console`,
+JavaScript API. See https://github.com/tenderly/boba/l2geth/wiki/JavaScript-Console`,
 	}
 )
 

@@ -23,8 +23,8 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/ethereum-optimism/optimism/l2geth/crypto"
-	"github.com/ethereum-optimism/optimism/l2geth/p2p/enode"
+	"github.com/tenderly/boba/l2geth/crypto"
+	"github.com/tenderly/boba/l2geth/p2p/enode"
 )
 
 func TestUDPv4_Lookup(t *testing.T) {

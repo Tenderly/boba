@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum-optimism/optimism/go/op_exporter/k8sClient"
-	"github.com/ethereum-optimism/optimism/go/op_exporter/version"
+	"github.com/tenderly/boba/go/op_exporter/k8sClient"
+	"github.com/tenderly/boba/go/op_exporter/version"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	log "github.com/sirupsen/logrus"

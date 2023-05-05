@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/ethereum-optimism/optimism/l2geth/metrics"
-	"github.com/ethereum-optimism/optimism/l2geth/metrics/prometheus"
+	"github.com/tenderly/boba/l2geth/metrics"
+	"github.com/tenderly/boba/l2geth/metrics/prometheus"
 )
 
 type exp struct {

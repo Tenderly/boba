@@ -255,7 +255,7 @@ describe('Basic RPC tests', () => {
         expect(res).to.eq(BigNumber.from(value))
       })
 
-      // https://github.com/ethereum-optimism/optimism/issues/1998
+      // https://github.com/tenderly/boba/issues/1998
       it('should use address(0) as the default "from" value', async () => {
         // Do the call and check msg.sender
         const data = ValueContext.interface.encodeFunctionData('getCaller')

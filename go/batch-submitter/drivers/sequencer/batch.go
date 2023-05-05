@@ -5,9 +5,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ethereum-optimism/optimism/l2geth/common"
+	"github.com/tenderly/boba/l2geth/common"
 	"github.com/ethereum/go-ethereum/log"
-	l2types "github.com/ethereum-optimism/optimism/l2geth/core/types"
+	l2types "github.com/tenderly/boba/l2geth/core/types"
 )
 
 var (
@@ -58,13 +58,13 @@ func BatchElementFromBlock(block *l2types.Block) BatchElement {
 	ret[0] = 1 // set the Turing version (1)
 
 	// Turing length cannot exceed 256*256 bytes (based on limit in the Geth), so we need two bytes max for the length
-	turingLength := make([]byte, 2) 
-	
+	turingLength := make([]byte, 2)
+
 	transactionMeta := tx.GetMeta()
 	l1Turing := transactionMeta.L1Turing
 	txData := tx.Data()
 
-	log.Debug("TURING transactionMeta", 
+	log.Debug("TURING transactionMeta",
 		"turing", l1Turing,
 		"txData", txData)
 
@@ -77,8 +77,8 @@ func BatchElementFromBlock(block *l2types.Block) BatchElement {
 		ret = append(ret, txData...)
 		// add the Turing data
 		ret = append(ret, l1Turing...)
-		log.Debug("TURING bobaTuringWrite:Modified parameters", 
-			"newValue", ret, 
+		log.Debug("TURING bobaTuringWrite:Modified parameters",
+			"newValue", ret,
 			"turingLength", turingLength)
 		// and now, replace the original txData
 		tx.SetData(common.CopyBytes(ret))
@@ -87,8 +87,8 @@ func BatchElementFromBlock(block *l2types.Block) BatchElement {
 		ret = append(ret, turingLength...)
 		// add the txData
 		ret = append(ret, txData...)
-		log.Debug("TURING bobaTuringWrite:NonTuring parameters", 
-			"newValue", ret, 
+		log.Debug("TURING bobaTuringWrite:NonTuring parameters",
+			"newValue", ret,
 			"turingLength", turingLength)
 		// and now, replace the original txData
 		tx.SetData(common.CopyBytes(ret))

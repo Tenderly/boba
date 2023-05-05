@@ -14,8 +14,8 @@ import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
  * @title Teleportation
  *
  * Shout out to optimisim for providing the inspiration for this contract:
- * https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts/contracts/L1/teleportr/TeleportrDeposit.sol
- * https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts/contracts/L2/teleportr/TeleportrDisburser.sol
+ * https://github.com/tenderly/boba/blob/develop/packages/contracts/contracts/L1/teleportr/TeleportrDeposit.sol
+ * https://github.com/tenderly/boba/blob/develop/packages/contracts/contracts/L2/teleportr/TeleportrDisburser.sol
  */
 contract Teleportation is PausableUpgradeable {
     using SafeMath for uint256;

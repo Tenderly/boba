@@ -22,7 +22,7 @@ contract OVM_ETH is L2StandardERC20 {
     {}
 
     // ETH ERC20 features are disabled until further notice.
-    // Discussion here: https://github.com/ethereum-optimism/optimism/discussions/1444
+    // Discussion here: https://github.com/tenderly/boba/discussions/1444
 
     function transfer(address recipient, uint256 amount) public virtual override returns (bool) {
         revert("OVM_ETH: transfer is disabled pending further community discussion.");

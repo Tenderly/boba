@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum-optimism/optimism/go/bss-core/boba"
-	"github.com/ethereum-optimism/optimism/go/bss-core/drivers"
-	"github.com/ethereum-optimism/optimism/go/bss-core/mock"
+	"github.com/tenderly/boba/go/bss-core/boba"
+	"github.com/tenderly/boba/go/bss-core/drivers"
+	"github.com/tenderly/boba/go/bss-core/mock"
 	"github.com/stretchr/testify/require"
 )
 

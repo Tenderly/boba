@@ -1,4 +1,4 @@
-module github.com/ethereum-optimism/optimism/l2geth
+module github.com/tenderly/boba/l2geth
 
 go 1.15
 

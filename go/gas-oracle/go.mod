@@ -1,4 +1,4 @@
-module github.com/ethereum-optimism/optimism/go/gas-oracle
+module github.com/tenderly/boba/go/gas-oracle
 
 go 1.16
 

@@ -1,11 +1,11 @@
-module github.com/ethereum-optimism/optimism/go/bss-core
+module github.com/tenderly/boba/go/bss-core
 
 go 1.16
 
 require (
 	github.com/aws/aws-sdk-go v1.42.6 // indirect
 	github.com/decred/dcrd/hdkeychain/v3 v3.0.0
-	github.com/ethereum-optimism/optimism/l2geth v1.0.0
+	github.com/tenderly/boba/l2geth v1.0.0
 	github.com/ethereum/go-ethereum v1.10.12
 	github.com/getsentry/sentry-go v0.11.0
 	github.com/prometheus/client_golang v1.11.0
@@ -14,6 +14,6 @@ require (
 	github.com/welthee/go-ethereum-aws-kms-tx-signer v0.0.0-20211013075913-ca566ae7abeb // indirect
 )
 
-replace github.com/ethereum-optimism/optimism/l2geth => ../../l2geth
+replace github.com/tenderly/boba/l2geth => ../../l2geth
 
-replace github.com/ethereum-optimism/optimism/go/bss-core/boba => ./boba
+replace github.com/tenderly/boba/go/bss-core/boba => ./boba

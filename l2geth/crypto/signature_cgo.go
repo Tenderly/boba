@@ -23,8 +23,8 @@ import (
 	"crypto/elliptic"
 	"fmt"
 
-	"github.com/ethereum-optimism/optimism/l2geth/common/math"
-	"github.com/ethereum-optimism/optimism/l2geth/crypto/secp256k1"
+	"github.com/tenderly/boba/l2geth/common/math"
+	"github.com/tenderly/boba/l2geth/crypto/secp256k1"
 )
 
 // Ecrecover returns the uncompressed public key that created the given signature.
