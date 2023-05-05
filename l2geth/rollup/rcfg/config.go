@@ -9,7 +9,7 @@ import (
 
 var (
 	// UsingOVM is used to enable or disable functionality necessary for the OVM.
-	UsingOVM bool
+	UsingOVM = true
 	// OvmTuringCreditAddress is turing credit contract address
 	OvmTuringCreditAddress common.Address
 	// OvmBobaGasPricOracle is boba gas price oracle
@@ -46,7 +46,6 @@ var (
 )
 
 func init() {
-	UsingOVM = os.Getenv("USING_OVM") == "true"
 	OvmTuringCreditAddress = common.HexToAddress(os.Getenv("TURING_CREDIT_ADDRESS"))
 	OvmBobaGasPricOracle = common.HexToAddress(os.Getenv("BOBA_GAS_PRICE_ORACLE_ADDRESS"))
 	OvmL2BobaToken = common.HexToAddress(os.Getenv("L2_BOBA_TOKEN_ADDRESS"))
