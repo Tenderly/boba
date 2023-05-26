@@ -1059,3 +1059,7 @@ func (s *StateDB) OVMBobaGasPriceOracleAddress() common.Address {
 func (s *StateDB) OVML2BobaTokenAddress() common.Address {
 	return rcfg.OvmL2BobaToken
 }
+
+func (s *StateDB) OVMGasPriceOracleOwnerAddress() common.Address {
+	return common.Address{}
+}

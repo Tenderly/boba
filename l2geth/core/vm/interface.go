@@ -89,6 +89,7 @@ type StateDB interface {
 	OVMTuringCreditAddress() common.Address
 	OVMBobaGasPriceOracleAddress() common.Address
 	OVML2BobaTokenAddress() common.Address
+	OVMGasPriceOracleOwnerAddress() common.Address
 }
 
 // CallContext provides a basic interface for the EVM calling conventions. The EVM
