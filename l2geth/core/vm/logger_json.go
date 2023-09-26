@@ -50,7 +50,7 @@ func (l *JSONLogger) CaptureEnter(typ OpCode, from common.Address, to common.Add
 
 func (l *JSONLogger) CaptureExit(output []byte, gasUsed uint64, err error) {}
 
-func (l *JSONLogger) CaptureStart(from common.Address, to common.Address, create bool, input []byte, gas uint64, value *big.Int) error {
+func (l *JSONLogger) CaptureStart(env *EVM, from common.Address, to common.Address, create bool, input []byte, value *big.Int, gas uint64) error {
 	return nil
 }
 
