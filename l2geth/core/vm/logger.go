@@ -106,7 +106,7 @@ type Tracer interface {
 	CaptureTxStart(gasLimit uint64)
 	CaptureTxEnd(restGas uint64)
 	// Top call frame
-	CaptureStart(env *EVM, from common.Address, to common.Address, create bool, input []byte, value *big.Int, gas uint64) error
+	CaptureStart(env *EVM, from common.Address, to common.Address, create bool, input []byte, gas uint64, value *big.Int) error
 	CaptureEnd(output []byte, gasUsed uint64, t time.Duration, err error) error
 	// Rest of call frames
 	CaptureEnter(typ OpCode, from common.Address, to common.Address, input []byte, gas uint64, value *big.Int)
@@ -151,7 +151,7 @@ func NewStructLogger(cfg *LogConfig) *StructLogger {
 }
 
 // CaptureStart implements the Tracer interface to initialize the tracing operation.
-func (l *StructLogger) CaptureStart(env *EVM, from common.Address, to common.Address, create bool, input []byte, value *big.Int, gas uint64) error {
+func (l *StructLogger) CaptureStart(env *EVM, from common.Address, to common.Address, create bool, input []byte, gas uint64, value *big.Int) error {
 	return nil
 }
 
