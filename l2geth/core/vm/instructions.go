@@ -396,7 +396,7 @@ func opSha3(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memory 
 	interpreter.hasher.Read(interpreter.hasherBuf[:])
 
 	evm := interpreter.evm
-	if evm.vmConfig.EnablePreimageRecording {
+	if evm.Config.EnablePreimageRecording {
 		evm.StateDB.AddPreimage(interpreter.hasherBuf, data)
 	}
 	stack.push(interpreter.intPool.get().SetBytes(interpreter.hasherBuf[:]))
@@ -882,11 +882,16 @@ func opStop(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memory 
 
 func opSuicide(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memory *Memory, stack *Stack) ([]byte, error) {
 	balance := interpreter.evm.StateDB.GetBalance(contract.Address())
-	interpreter.evm.StateDB.AddBalance(common.BigToAddress(stack.pop()), balance)
+	beneficiary := common.BigToAddress(stack.pop())
+	interpreter.evm.StateDB.AddBalance(beneficiary, balance)
 
 	interpreter.evm.StateDB.Suicide(contract.Address())
 	if rcfg.UsingOVM && interpreter.evm.chainConfig.IsSDUpdate(interpreter.evm.BlockNumber) {
 		interpreter.evm.StateDB.SubBalance(contract.Address(), balance)
+	}
+	if tracer := interpreter.evm.Config.Tracer; tracer != nil {
+		tracer.CaptureEnter(SELFDESTRUCT, contract.Address(), beneficiary, []byte{}, 0, balance)
+		tracer.CaptureExit([]byte{}, 0, nil)
 	}
 	return nil, nil
 }

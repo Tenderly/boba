@@ -639,3 +639,12 @@ func (jst *Tracer) GetResult() (json.RawMessage, error) {
 
 	return result, jst.err
 }
+
+func (jst *Tracer) CaptureTxStart(gasLimit uint64) {}
+
+func (jst *Tracer) CaptureTxEnd(restGas uint64) {}
+
+func (jst *Tracer) CaptureEnter(typ vm.OpCode, from common.Address, to common.Address, input []byte, gas uint64, value *big.Int) {
+}
+
+func (jst *Tracer) CaptureExit(output []byte, gasUsed uint64, err error) {}
