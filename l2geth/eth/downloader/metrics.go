@@ -19,7 +19,7 @@
 package downloader
 
 import (
-	"github.com/ethereum-optimism/optimism/l2geth/metrics"
+	"github.com/tenderly/boba/l2geth/metrics"
 )
 
 var (

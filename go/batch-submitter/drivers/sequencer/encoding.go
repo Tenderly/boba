@@ -9,8 +9,8 @@ import (
 	"math"
 
 	"github.com/andybalholm/brotli"
-	l2types "github.com/ethereum-optimism/optimism/l2geth/core/types"
-	l2rlp "github.com/ethereum-optimism/optimism/l2geth/rlp"
+	l2types "github.com/tenderly/boba/l2geth/core/types"
+	l2rlp "github.com/tenderly/boba/l2geth/rlp"
 )
 
 const (

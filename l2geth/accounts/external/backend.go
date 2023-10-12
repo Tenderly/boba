@@ -21,16 +21,16 @@ import (
 	"math/big"
 	"sync"
 
-	ethereum "github.com/ethereum-optimism/optimism/l2geth"
-	"github.com/ethereum-optimism/optimism/l2geth/accounts"
-	"github.com/ethereum-optimism/optimism/l2geth/common"
-	"github.com/ethereum-optimism/optimism/l2geth/common/hexutil"
-	"github.com/ethereum-optimism/optimism/l2geth/core/types"
-	"github.com/ethereum-optimism/optimism/l2geth/event"
-	"github.com/ethereum-optimism/optimism/l2geth/internal/ethapi"
-	"github.com/ethereum-optimism/optimism/l2geth/log"
-	"github.com/ethereum-optimism/optimism/l2geth/rpc"
-	"github.com/ethereum-optimism/optimism/l2geth/signer/core"
+	ethereum "github.com/tenderly/boba/l2geth"
+	"github.com/tenderly/boba/l2geth/accounts"
+	"github.com/tenderly/boba/l2geth/common"
+	"github.com/tenderly/boba/l2geth/common/hexutil"
+	"github.com/tenderly/boba/l2geth/core/types"
+	"github.com/tenderly/boba/l2geth/event"
+	"github.com/tenderly/boba/l2geth/internal/ethapi"
+	"github.com/tenderly/boba/l2geth/log"
+	"github.com/tenderly/boba/l2geth/rpc"
+	"github.com/tenderly/boba/l2geth/signer/core"
 )
 
 type ExternalBackend struct {

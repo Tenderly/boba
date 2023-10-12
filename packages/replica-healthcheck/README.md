@@ -10,7 +10,7 @@
 Clone, install, and build the Optimism monorepo:
 
 ```
-git clone https://github.com/ethereum-optimism/optimism.git
+git clone https://github.com/tenderly/boba.git
 yarn install
 yarn build
 ```

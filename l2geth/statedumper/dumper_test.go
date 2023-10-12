@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ethereum-optimism/optimism/l2geth/common"
+	"github.com/tenderly/boba/l2geth/common"
 )
 
 func TestFileStateDumper(t *testing.T) {

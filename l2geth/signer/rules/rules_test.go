@@ -22,13 +22,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum-optimism/optimism/l2geth/accounts"
-	"github.com/ethereum-optimism/optimism/l2geth/common"
-	"github.com/ethereum-optimism/optimism/l2geth/common/hexutil"
-	"github.com/ethereum-optimism/optimism/l2geth/core/types"
-	"github.com/ethereum-optimism/optimism/l2geth/internal/ethapi"
-	"github.com/ethereum-optimism/optimism/l2geth/signer/core"
-	"github.com/ethereum-optimism/optimism/l2geth/signer/storage"
+	"github.com/tenderly/boba/l2geth/accounts"
+	"github.com/tenderly/boba/l2geth/common"
+	"github.com/tenderly/boba/l2geth/common/hexutil"
+	"github.com/tenderly/boba/l2geth/core/types"
+	"github.com/tenderly/boba/l2geth/internal/ethapi"
+	"github.com/tenderly/boba/l2geth/signer/core"
+	"github.com/tenderly/boba/l2geth/signer/storage"
 )
 
 const JS = `

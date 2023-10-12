@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum-optimism/optimism/go/bss-core/drivers"
-	"github.com/ethereum-optimism/optimism/go/bss-core/mock"
-	"github.com/ethereum-optimism/optimism/go/bss-core/txmgr"
+	"github.com/tenderly/boba/go/bss-core/drivers"
+	"github.com/tenderly/boba/go/bss-core/mock"
+	"github.com/tenderly/boba/go/bss-core/txmgr"
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"

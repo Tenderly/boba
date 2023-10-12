@@ -495,7 +495,7 @@ index 66efc8c..7d3df91 100644
 -      the SentMessage event is not indexed within the CrossChainMessenger contracts.
 -      getMessagesByAddress will be enabled by plugging in an Optimism Indexer (coming soon).
 -      See the following issue on GitHub for additional context:
--      https://github.com/ethereum-optimism/optimism/issues/2129
+-      https://github.com/tenderly/boba/issues/2129
 -    `);
 -    }
      async getBridgeForTokenPair(l1Token, l2Token) {
